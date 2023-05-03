@@ -16,5 +16,5 @@ public interface UserMapper {
     List<User> findAll();
 
     @Insert("insert into users (name,address) values (#{name}, #{address})")
-    List<User> createDate(CreateForm form);
+    public void createDate(CreateForm form);
 }

@@ -1,10 +1,7 @@
 package com.mybatis.task10.demo;
 
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
@@ -17,4 +14,8 @@ public interface UserMapper {
 
     @Insert("insert into users (name,address) values (#{name}, #{address})")
     public void createDate(CreateForm form);
+
+    @Update("update users SET address = #{address} where #{address}")
+    public void upData(User user);
+
 }

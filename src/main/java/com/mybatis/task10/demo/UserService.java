@@ -10,6 +10,6 @@ public interface UserService {
 
     void create(CreateForm form);
 
-    void update(int id, String name,String address) throws Exception;
+    void update(User user) throws Exception;
 
 }

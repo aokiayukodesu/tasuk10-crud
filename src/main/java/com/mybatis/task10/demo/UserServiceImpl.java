@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     public List<User> findByAll() {
         return userMapper.findAll();
     }
-    
+
     @Override
     public User findById(int id) throws Exception {
         return null;
@@ -31,6 +31,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(int id, String name, String address) throws Exception {
+    public void update(User user) {
+        userMapper.upData(user);
     }
+
 }

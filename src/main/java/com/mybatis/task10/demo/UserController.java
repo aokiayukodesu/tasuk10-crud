@@ -32,10 +32,9 @@ public class UserController {
         return ResponseEntity.created(url).body("your date successfully created");
     }
 
-    @PatchMapping("/users/{address}")
-    public ResponseEntity<String> upData(@RequestBody User user, @PathVariable("address") String address) {
-        userService.updata(user)
-        return　
+    @PatchMapping("/users/{id}")
+    public ResponseEntity upDate(@PathVariable("id") int id, @RequestBody User user) {
+        userService.update(user);
+        return ResponseEntity.ok(user);
     }
-
 }

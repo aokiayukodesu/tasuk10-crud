@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void update(User user) {
-        userMapper.upData(user);
+        userMapper.upDate(user);
     }
 
 }

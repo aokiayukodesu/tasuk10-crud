@@ -10,6 +10,6 @@ public interface UserService {
 
     void create(CreateForm form);
 
-    void update(User user) throws Exception;
+    void update(User user);
 
 }

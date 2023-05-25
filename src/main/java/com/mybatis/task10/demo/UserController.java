@@ -23,8 +23,8 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<String> create(@RequestBody CreateForm form) {
-        userService.create(form);
+    public ResponseEntity<String> create(@PathVariable("id") int id, @RequestBody CreateForm form) {
+        userService.create(id, form);
         URI url = UriComponentsBuilder.fromUriString("http://localhost:8080")
                 .path("/users/user_date")
                 .build()
@@ -34,7 +34,7 @@ public class UserController {
 
     @PatchMapping("/users/{id}")
     public ResponseEntity upDate(@PathVariable("id") int id, @RequestBody User user) {
-        userService.update(user);
+        userService.update(id, user);
         return ResponseEntity.ok(user);
     }
 }

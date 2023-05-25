@@ -1,7 +1,6 @@
 package com.mybatis.task10.demo;
 
 public class CreateForm {
-
     private int id;
 
     private String name;
@@ -14,7 +13,6 @@ public class CreateForm {
         this.address = address;
     }
 
-
     public int getId() {
         return id;
     }
@@ -26,4 +24,17 @@ public class CreateForm {
     public String getAddress() {
         return address;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 }

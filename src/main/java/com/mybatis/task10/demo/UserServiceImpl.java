@@ -26,13 +26,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void create(int id, CreateForm form) {
+    public void create(CreateForm form) {
         userMapper.createDate(form);
     }
 
     @Override
     public void update(int id, User user) {
-        userMapper.upDate(user);
+        user.setId(id);
+        userMapper.upDate(id, user);
     }
-
 }
+
+

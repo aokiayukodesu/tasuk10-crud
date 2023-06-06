@@ -16,6 +16,6 @@ public interface UserMapper {
     public void createDate(CreateForm form);
 
     @Update("update users SET id = #{id} where #{id}")
-    public void upDate(User user);
+    public void upDate(int id, User user);
 
 }

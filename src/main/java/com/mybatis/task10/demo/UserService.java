@@ -8,7 +8,7 @@ public interface UserService {
 
     User findById(int id) throws Exception;
 
-    void create(int id, CreateForm form);
+    void create(CreateForm form);
 
     void update(int id, User user);
 

@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findByAll(){
+    public List<User> findByAll() {
         return userMapper.findAll();
     }
 
@@ -26,11 +26,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void create(CreateForm form){
-       userMapper.createDate(form);
-        }
+    public void create(CreateForm form) {
+        userMapper.createDate(form);
+    }
 
     @Override
-    public void update(int id, String name,String address) throws Exception {
+    public void update(int id, User user) {
+        user.setId(id);
+        userMapper.upDate(id, user);
     }
 }
+
+

@@ -31,4 +31,10 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(url).body("your date successfully created");
     }
+
+    @PatchMapping("/users/{id}")
+    public ResponseEntity upDate(@PathVariable("id") int id, @RequestBody User user) {
+        userService.update(id, user);
+        return ResponseEntity.ok(user);
+    }
 }

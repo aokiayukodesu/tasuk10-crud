@@ -15,7 +15,6 @@ public interface UserMapper {
     @Insert("insert into users (name,address) values (#{name}, #{address})")
     public void createDate(CreateForm form);
 
-    @Update("update users SET id = #{id} where #{id}")
+    @Update("update users set name = #{name}, address =#{address}  where id =#{id}")
     public void upDate(int id, User user);
-
 }

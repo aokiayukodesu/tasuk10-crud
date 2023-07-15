@@ -1,7 +1,5 @@
 package com.mybatis.task10.demo;
 
-import org.apache.ibatis.annotations.Update;
-
 public class User {
     private int id;
 
@@ -37,5 +35,4 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
-
 }

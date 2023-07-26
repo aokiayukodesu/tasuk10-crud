@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -31,9 +30,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(int id, User user) {
+    public User update(int id, User user) {
         user.setId(id);
         userMapper.upDate(id, user);
+
     }
 }
 

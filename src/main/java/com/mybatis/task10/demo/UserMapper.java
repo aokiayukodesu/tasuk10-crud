@@ -13,6 +13,6 @@ public interface UserMapper {
     @Insert("insert into users (name,address) values (#{name}, #{address})")
     public void createDate(CreateForm form);
 
-    @Update("update users set name = #{name}, address =#{address} where id =#{id}")
-    void upDate(@Param("name") String name, @Param("address") String address, @Param("id") int id, @Param("user") User user);
+    @Update("update users set name = #{user.name}, address =#{user.address} where id =#{id}")
+    void update(@Param("id") int id, @Param("user") User user);
 }

@@ -1,19 +1,14 @@
 package com.mybatis.task10.demo;
 
-public class User {
-    private int id;
+public class UpdateForm {
 
     private String name;
+
     private String address;
 
-    public User(int id, String name, String address) {
-        this.id = id;
+    public UpdateForm(String name, String address) {
         this.name = name;
         this.address = address;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {
@@ -23,7 +18,6 @@ public class User {
     public String getAddress() {
         return address;
     }
-    
 
     public void setName(String name) {
         this.name = name;
@@ -32,6 +26,4 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
-
 }
-

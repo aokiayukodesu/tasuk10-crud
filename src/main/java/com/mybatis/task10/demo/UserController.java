@@ -33,8 +33,14 @@ public class UserController {
     }
 
     @PatchMapping("/users/{id}")
-    public ResponseEntity upDate(@PathVariable("id") int id, @RequestBody User user) {
-        userService.update(id, user);
+    public User update(@PathVariable("id") int id, @RequestBody UpdateForm form) {
+        userService.update(id, form);
         return ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity delete(@PathVariable("id") int id, @RequestBody User user) {
+        userService.delete(id, user);
+        return ResponseEntity.ok("Delete success");
     }
 }

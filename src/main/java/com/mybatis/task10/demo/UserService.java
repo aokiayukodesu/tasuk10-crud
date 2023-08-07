@@ -10,6 +10,7 @@ public interface UserService {
 
     void create(CreateForm form);
 
-    public User update(int id, User user);
+    public User update(int id, UpdateForm form);
 
+    void delete(int id, User user);
 }

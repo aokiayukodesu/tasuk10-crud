@@ -34,8 +34,8 @@ public class UserController {
 
     @PatchMapping("/users/{id}")
     public User update(@PathVariable("id") int id, @RequestBody UpdateForm form) {
-        userService.update(id, form);
-        return ResponseEntity.ok(user);
+        User user = userService.update(id, form.getName(), form.getAddress());
+        return ResponseEntity.ok(user).getBody();
     }
 
     @DeleteMapping("/users/{id}")

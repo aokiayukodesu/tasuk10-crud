@@ -10,7 +10,7 @@ public interface UserService {
 
     void create(CreateForm form);
 
-    public User update(int id, UpdateForm form);
+    public User update(int id, String name, String address);
 
     void delete(int id, User user);
 }

@@ -30,8 +30,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User update(int id, UpdateForm form) {
-        userMapper.update(id, form);
+    public User update(int id, String name, String address) {
+        User user = new User(id, name, address);
+        userMapper.update(id, user);
         return user;
     }
 

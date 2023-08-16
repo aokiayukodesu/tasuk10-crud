@@ -3,6 +3,7 @@ package com.mybatis.task10.demo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 
@@ -17,5 +18,8 @@ public interface UserMapper {
     void update(@Param("id") int id, @Param("user") User user);
 
     @Delete("delete from users where id = #{user.id}")
-    void delete(@Param("id") int id, @Param("user") User user);
+    void delete(@Param("id") int id, @Param("name") String name, @Param("address") String address);
+
+    @Select("SELECT * FROM users WHERE id = #{user.id}")
+    Optional<User> findById(@Param("id") int id);
 }

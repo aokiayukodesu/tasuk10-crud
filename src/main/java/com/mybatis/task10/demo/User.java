@@ -23,7 +23,7 @@ public class User {
     public String getAddress() {
         return address;
     }
-    
+
 
     public void setName(String name) {
         this.name = name;
@@ -32,6 +32,4 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
-
 }
-

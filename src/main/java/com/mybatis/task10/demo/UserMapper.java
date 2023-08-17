@@ -17,9 +17,9 @@ public interface UserMapper {
     @Update("update users set name = #{user.name}, address =#{user.address} where id =#{id}")
     void update(@Param("id") int id, @Param("user") User user);
 
-    @Delete("delete from users where id = #{user.id}")
+    @Delete("delete from users where id = #{id}")
     void delete(@Param("id") int id, @Param("name") String name, @Param("address") String address);
 
-    @Select("SELECT * FROM users WHERE id = #{user.id}")
+    @Select("SELECT * FROM users WHERE id = #{id}")
     Optional<User> findById(@Param("id") int id);
 }

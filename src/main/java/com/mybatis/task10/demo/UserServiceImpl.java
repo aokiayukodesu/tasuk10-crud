@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User update(int id, String name, String address) {
+        userMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定されたidは存在しません"));
         User user = new User(id, name, address);
         userMapper.update(id, user);
         return user;

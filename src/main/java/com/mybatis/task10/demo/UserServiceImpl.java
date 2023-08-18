@@ -39,11 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(int id, String name, String address) {
-        Optional<User> user = userMapper.findById(id);
-        if (user.isPresent()) {
-            userMapper.delete(id, name, address);
-        } else {
-            throw new ResourceNotFoundException("指定されたidは存在しません");
-        }
+        userMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定されたidは存在しません"));
+        userMapper.delete(id, name, address);
     }
 }

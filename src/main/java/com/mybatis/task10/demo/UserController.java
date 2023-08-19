@@ -53,9 +53,11 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity delete(@PathVariable("id") int id, String name, String address) {
+    public ResponseEntity<Map<String, String>> delete(@PathVariable("id") int id, String name, String address) {
         userService.delete(id, name, address);
-        return ResponseEntity.ok("Delete success");
+        Map<String, String> body = Map.of(
+                "massage", "Delete success!");
+        return ResponseEntity.ok(body);
     }
 
     @ExceptionHandler(value = ResourceNotFoundException.class)

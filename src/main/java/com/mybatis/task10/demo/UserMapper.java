@@ -1,13 +1,14 @@
 package com.mybatis.task10.demo;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.beans.factory.annotation.Value;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 
@@ -17,4 +18,13 @@ public interface UserMapper {
 
     @Insert("insert into users (name,address) values (#{name}, #{address})")
     public void createDate(CreateForm form);
+
+    @Update("update users set name = #{user.name}, address =#{user.address} where id =#{id}")
+    void update(@Param("id") int id, @Param("user") User user);
+
+    @Delete("delete from users where id = #{id}")
+    void delete(@Param("id") int id, @Param("name") String name, @Param("address") String address);
+
+    @Select("SELECT * FROM users WHERE id = #{id}")
+    Optional<User> findById(@Param("id") int id);
 }

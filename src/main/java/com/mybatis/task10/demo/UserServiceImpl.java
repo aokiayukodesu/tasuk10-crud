@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -19,10 +19,10 @@ public class UserServiceImpl implements UserService {
     public List<User> findByAll() {
         return userMapper.findAll();
     }
-    
+
     @Override
-    public User findById(int id) throws Exception {
-        return null;
+    public Optional<User> findById(int id) throws Exception {
+        return userMapper.findById(id);
     }
 
     @Override
@@ -31,6 +31,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(int id, String name, String address) throws Exception {
+    public User update(int id, String name, String address) {
+        userMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定されたidは存在しません"));
+        User user = new User(id, name, address);
+        userMapper.update(id, user);
+        return user;
+    }
+
+    @Override
+    public void delete(int id, String name, String address) {
+        userMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("指定されたidは存在しません"));
+        userMapper.delete(id, name, address);
     }
 }
